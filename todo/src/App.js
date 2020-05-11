@@ -29,7 +29,11 @@ function App() {
   return (
     <div className="App">
       <TodoList todos={state.todos} toggleTodo={toggleTodo}/>
-      <TodoForm changeHandler={changeHandler} submitHandler={() => dispatch({ type: "ADD_TODO" })} />
+      <TodoForm 
+        changeHandler={changeHandler} 
+        submitHandler={() => dispatch({ type: "ADD_TODO" })} 
+        clearTodos={() =>  dispatch({ type: "CLEAR_TODOS" })}
+      />
     </div>
   );
 }

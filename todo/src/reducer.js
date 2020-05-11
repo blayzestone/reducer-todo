@@ -27,6 +27,12 @@ export const reducer = (state, action) => {
         ...state,
         todos: updatedTodos,
       }
+    case "CLEAR_TODOS":
+      const filteredTodos = state.todos.filter(todo => todo.completed === false);
+      return {
+        ...state,
+        todos: filteredTodos,
+      }
     case "INPUT_TEXT":
       return {
         ...state,
