@@ -1,5 +1,5 @@
 export const initialState = {
-  textValue: "",
+  inputValue: "",
   todos: [
     {
       task: "foobar",
@@ -12,7 +12,7 @@ export const initialState = {
 export const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_TODO":
-      if (state.textValue) {
+      if (state.inputValue) {
         return {
           ...state,
           todos: [
