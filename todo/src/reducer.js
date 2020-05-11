@@ -1,3 +1,14 @@
+export const initialState = {
+  textValue: "",
+  todos: [
+    {
+      task: "foobar",
+      id: Date.now(),
+      completed: false,
+    },
+  ],
+}
+
 export const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_TODO":

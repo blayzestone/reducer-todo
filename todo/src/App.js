@@ -1,19 +1,8 @@
 import React, { useReducer } from 'react';
-import { reducer } from './reducer';
+import { reducer, initialState } from './reducer';
 
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
-
-const initialState = {
-  textValue: "",
-  todos: [
-    {
-      task: "foobar",
-      id: Date.now(),
-      completed: false,
-    },
-  ],
-}
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
