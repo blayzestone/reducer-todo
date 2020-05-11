@@ -1,8 +1,10 @@
 import React, { useReducer } from 'react';
-
 import { reducer } from './reducer';
 
+import TodoForm from './components/TodoForm';
+
 const initialState = {
+  textValue: "",
   todos: [
     {
       task: "foobar",
@@ -15,6 +17,10 @@ const initialState = {
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const changeHandler = value => {
+    return dispatch({ type: "INPUT_TEXT", payload: value });
+  }
+
   return (
     <div className="App">
       <ul>
@@ -22,6 +28,7 @@ function App() {
             <li>{todo.task}</li>
           ))}
       </ul>
+      <TodoForm changeHandler={changeHandler} submitHandler={() => dispatch({ type: "ADD_TODO" })} />
     </div>
   );
 }
