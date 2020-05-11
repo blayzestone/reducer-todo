@@ -12,16 +12,18 @@ export const initialState = {
 export const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_TODO":
-      return {
-        ...state,
-        todos: [
-          ...state.todos,
-          {
-            task: state.inputValue,
-            id: Date.now(),
-            completed: false,
-          },
-        ],
+      if (state.textValue) {
+        return {
+          ...state,
+          todos: [
+            ...state.todos,
+            {
+              task: state.inputValue,
+              id: Date.now(),
+              completed: false,
+            },
+          ],
+        }
       }
     case "TOGGLE_TODO":
       const updatedTodos = state.todos.map(todo => {
