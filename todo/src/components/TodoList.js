@@ -1,12 +1,13 @@
 import React from 'react';
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, toggleTodo }) => {
   return (
     <ul>
     {todos.map(todo => (
-        <li 
+        <li
+          onClick={() => toggleTodo(todo.id)}
           key={todo.id}
-          style={{ textDecoration: todo.completed ? 'line-through' : "" }}
+          style={{ cursor: "pointer", textDecoration: todo.completed ? 'line-through' : "" }}
         >{todo.task}</li>
       ))}
   </ul>

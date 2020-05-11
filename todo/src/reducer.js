@@ -12,6 +12,21 @@ export const reducer = (state, action) => {
           },
         ],
       }
+    case "TOGGLE_TODO":
+      const updatedTodos = state.todos.map(todo => {
+        if(action.payload === todo.id) {
+          const updatedTodo = { 
+            ...todo, 
+            completed: !todo.completed, 
+          }
+          return updatedTodo;
+        }
+        return todo;
+      });
+      return {
+        ...state,
+        todos: updatedTodos,
+      }
     case "INPUT_TEXT":
       return {
         ...state,
