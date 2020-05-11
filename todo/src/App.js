@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import { reducer } from './reducer';
 
+import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 
 const initialState = {
@@ -23,11 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      <ul>
-        {state.todos.map(todo => (
-            <li>{todo.task}</li>
-          ))}
-      </ul>
+      <TodoList todos={state.todos}/>
       <TodoForm changeHandler={changeHandler} submitHandler={() => dispatch({ type: "ADD_TODO" })} />
     </div>
   );
